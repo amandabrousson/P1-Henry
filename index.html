@@ -4,8 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="styles/styles.css">
+    <link rel="stylesheet" type="text/css" href="styles/reset.css">
 </head>
 <body>
     <h1>Proyecto M1</h1>
+
+    <section id= 'sobre_mi'>
+        <p>'Mi nombre es Amanda. Tengo 29 años y vivo en Buenos Aires, Argentina. Soy licenciada en Relaciones Internacionales, actualmente 
+            realizando el curso de desarrollo fullstack en SoyHenry.'</p>        
+    </section>
+
+    <section id="mis_tecnologias_favoritas">
+        <h2>Mis Tecnologías favoritas</h2>
+        <div class="columnas">
+            <div class="gps">
+                <h3>GPS</h3>
+                <img class="imggps" src="img/gps.jpg" alt="Imagen GPS">
+            </div>
+            <div class="tv">
+                <h3>Televisor</h3>
+                <img class="imgtv" src="img/D_NQ_NP_959798-MLU72487028533_102023-O.jpg" alt="Imagen tv">
+            </div>
+            <div class="chatgpt">
+                <h3>CHAT GPT</h3>
+                <img class="imgchat" src="img/chatgpt.jpg" alt="Imagen CHAT GPT">
+            </div>
+        </div>
+    </section>
+
+    <section id="mis_actividades_favoritas">
+        <h2>Mis actividades favoritas</h2>
+            <label for="Título">Título:</label>
+                <input type="text" id="titulo" name="Tìtulo"/>
+            <label for="Descripción">Descripción:</label>
+                <input type="text" id="descripcion" name="Descripción"/>
+            <label for="URLIMg">URL imagen:</label>
+                <input type="url" id="url" name="url IMAGEN"/>
+
+            <button class="botonactividades"> AGREGAR </button>
+
+        <!-- TARJETAS QUE SE MUESTRAN CON LO AGREGADO ARRIBA -->
+        
+        <div class="contenedoractividades">
+
+        </div>
+    </section>
 </body>
 </html>

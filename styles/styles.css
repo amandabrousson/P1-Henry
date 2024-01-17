@@ -1,0 +1,150 @@
+html{
+    font-family: 'Oswald', sans-serif;
+    
+}
+
+body {
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-color: #5e6c5b;
+}
+
+/* titulo */
+
+h1{
+    font-size: 4rem;
+    text-align: center;
+}
+
+/* Section SOBRE MI */
+
+#sobre_mi{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 3rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: #f4efe6;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+#sobre_mi p{
+    border: 3px solid black;
+    padding: 20px;
+    width: 50rem;
+    text-align: center;
+}
+
+/* Section MIS TECNOLOGIAS FAVORITAS */
+
+#mis_tecnologias_favoritas{
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color:#f4efe6;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+#mis_tecnologias_favoritas h2{
+    text-align: center;
+}
+
+.columnas{
+    display: flex;
+    flex-direction: row;
+    column-count: 3;
+    column-gap: 2rem;
+    justify-content: center;
+
+    }
+
+/* Columna GPS */
+
+.gps{
+    border: 2px solid black;
+    padding: 30px 70px;
+    margin-bottom: 1rem;
+}
+
+.gps h3{
+    text-align: center;
+    margin-top: 0rem;
+}
+
+.imggps{
+    width: 10rem;
+}
+
+/* Columna TV */
+
+.tv{
+    border: 2px solid black;
+    padding: 30px 70px;
+    margin-bottom: 1rem;
+}
+
+.tv h3{
+    text-align: center;
+    margin-top: 0rem;
+}
+
+.imgtv{
+    width: 10rem;
+    margin-top: 3rem;
+}
+
+/* Columna CHATGPT */
+
+.chatgpt{
+    border: 2px solid black;
+    padding: 30px 70px;
+    margin-bottom: 1rem;
+}
+
+.chatgpt h3{
+    text-align: center;
+    margin-top: 0rem;
+}
+
+.imgchat{
+    width: 10rem;
+    margin-top: 3rem;
+}
+
+/* Section MIS ACTIVIDADES FAVORITAS */
+
+#mis_actividades_favoritas h2{
+    text-align: center;
+}
+
+#mis_actividades_favoritas {
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: #f4efe6;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+  }
+
+input {
+    width: 70%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+  }
+
+.botonactividades{
+    display: flex;
+}
+
