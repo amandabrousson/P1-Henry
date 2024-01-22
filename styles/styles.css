@@ -6,7 +6,7 @@ html{
 body {
     background-repeat: no-repeat;
     background-size: cover; 
-    background-color: #5e6c5b;
+    background-color: #10162c;
 }
 
 /* titulo */
@@ -14,7 +14,43 @@ body {
 h1{
     font-size: 4rem;
     text-align: center;
+    color:#f4efe6;
 }
+
+/* índice */
+
+.navegador{
+    background: linear-gradient(90deg, #020024 0%, #093179 36%, #00d4ff 100%);
+    border-bottom: 2px solid black; 
+    }
+
+.navegador__indice {
+    max-width: 150rem;
+    font-family: 'Oswald', sans-serif; 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+    .navegador__indice a{
+        font-size: 1rem;
+        font-weight: bold;
+        padding: 1rem;
+        text-decoration: none;
+        color: azure; 
+    }
+
+      .navegador__indice a:hover {
+        background-color: #15cdca;
+        color: black;
+        border-radius: 10px; 
+    }
+
+    .navegador__indice a.active {
+        background-color: #15cdca;
+        color: black;
+        border-radius: 10px; 
+    }
 
 /* Section SOBRE MI */
 
@@ -27,11 +63,19 @@ h1{
     margin: 20px auto;
     background-color: #f4efe6;
     padding: 20px;
-    border-radius: 8px;
+    border-radius: 1rem;
+}
+
+#sobre_mi h2{
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    text-decoration: underline;
 }
 
 #sobre_mi p{
     border: 3px solid black;
+    border-radius: 1rem;
     padding: 20px;
     width: 50rem;
     text-align: center;
@@ -52,6 +96,9 @@ h1{
 
 #mis_tecnologias_favoritas h2{
     text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    text-decoration: underline;
 }
 
 .columnas{
@@ -60,66 +107,53 @@ h1{
     column-count: 3;
     column-gap: 2rem;
     justify-content: center;
-
+    
     }
 
-/* Columna GPS */
+/* Columna html */
 
-.gps{
-    border: 2px solid black;
-    padding: 30px 70px;
-    margin-bottom: 1rem;
+.html:hover{
+        transform: scale(1.15);
+        opacity: 1; 
+    }
+
+.imghtml{
+    width: 14rem;
+    margin-top: 1rem;
+    }
+
+/* Columna photoshop */
+
+.photoshop:hover{
+    transform: scale(1.15);
+    opacity: 1; 
 }
 
-.gps h3{
-    text-align: center;
-    margin-top: 0rem;
+.imgps{
+    width: 12rem;
+    margin-top: 2rem;
+    margin-left: 0.8rem;
 }
 
-.imggps{
-    width: 10rem;
+/* Columna javascript */
+
+.javascript:hover{
+    transform: scale(1.15);
+    opacity: 1; 
 }
 
-/* Columna TV */
-
-.tv{
-    border: 2px solid black;
-    padding: 30px 70px;
-    margin-bottom: 1rem;
-}
-
-.tv h3{
-    text-align: center;
-    margin-top: 0rem;
-}
-
-.imgtv{
-    width: 10rem;
-    margin-top: 3rem;
-}
-
-/* Columna CHATGPT */
-
-.chatgpt{
-    border: 2px solid black;
-    padding: 30px 70px;
-    margin-bottom: 1rem;
-}
-
-.chatgpt h3{
-    text-align: center;
-    margin-top: 0rem;
-}
-
-.imgchat{
-    width: 10rem;
-    margin-top: 3rem;
+.imgjs{
+    width: 14rem;
+    margin-top: 1rem;
 }
 
 /* Section MIS ACTIVIDADES FAVORITAS */
 
 #mis_actividades_favoritas h2{
     text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    text-decoration: underline;
 }
 
 #mis_actividades_favoritas {
@@ -146,5 +180,9 @@ input {
 
 .botonactividades{
     display: flex;
+}
+
+.pie{
+    text-align: center;
 }
 
