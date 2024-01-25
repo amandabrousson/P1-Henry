@@ -26,7 +26,7 @@ navlinks.forEach(link => {
     link.addEventListener('click', handleNavClick);
 });
 
-window.onscroll = () => {
+/* window.onscroll = () => {
     sections.forEach(sec => {
         let top = window.scrollY;
         let title = sec.querySelector('h2');
@@ -39,12 +39,12 @@ window.onscroll = () => {
             if (top >= offset && top < offset + height) {
                 navlinks.forEach(links => {
                     links.classList.remove('active');
-                    document.querySelector('header nav a[href*=' + id + ']').classList.add('active');
+                    document.querySelector('div nav a[href*=' + id + ']').classList.add('active');
                 });
             }
         }
     });
-};
+}; */
 
 
 /* Formulario */
@@ -64,28 +64,144 @@ class Repository{
     constructor(){
     /* A esta clase repositorio le creamos un metodo que reciba las actividades del formulario, cree una actividad nueva y la guarde
     en su array. */
-        this.Activities = [];
+        this.activities = [];
+        this.contador = 1;
     }
 
     /* un metodo que le permita retornar todas las actividades */   
     getallactivities(){
-        return this.Activities;
+        return this.activities;
     }; 
 
     /* un metodo que le permita filtrar las actividades */    
     createActivity(titulo, descripcion, url){
-        const newActivity = new Activity(this.newid(),titulo, descripcion, url);
-        this.Activities.push(newActivity)
+        const newActivity = new Activity(this.contador,titulo, descripcion, url);
+        this.activities.push(newActivity);
+        this.contador++;
     };
-
-    /* método para generar ID a medida que se agregan actividades */
-    newid(){    
-        return this.Activities.length + 1;
-    }
-        
-
     /* método para eliminar */
     deleteid(id){
-        this.Activities = this.Activities.filter(Activity => Activity.id !== id)
+        this.activities.filter((activity) => activity.id !== id)
     };
 }
+
+/* Instancia de activity */
+
+
+function activityToHTML(activities) {
+    
+    const {titulo, descripcion, url } = activities;   // Destructuring
+
+    // Crear los elementos html.
+    const cardtitulo = document.createElement("h3");
+    const carddescripcion = document.createElement("p");
+    const cardimagen = document.createElement("img");
+    // crear div para la carta 
+
+    // Asignar los valores 
+    cardtitulo.innerHTML = titulo;
+    carddescripcion.innerHTML = descripcion;
+    cardimagen.src = url;
+
+    //vincular con CSS
+    cardtitulo.classList.add('titulo');
+    carddescripcion.classList.add('descripcion');
+    cardimagen.classList.add('url');
+    cardElement.classList.add('contenedoractividades');
+
+    //vincular con card
+    cardElement.appendChild(cardtitulo);
+    cardElement.appendChild(carddescripcion);
+    cardElement.appendChild(cardimagen);
+    divgrande.append(cardElement);
+
+    //retornar el div
+    return cardElement;
+}
+
+function todoAlDOM(){
+    const contenedorActividades = document.getElementById('div1');
+
+    contenedorActividades.innerHTML = '';         
+
+    //Listado completo de actividades
+    const actividades = Repository.getallactivities();  
+
+    //mapear lista de act
+    const elementosHTML = actividades.map(activity => activityToHTML(activity));
+
+    elementosHTML.forEach(elemento => {
+        contenedorActividades.appendChild(elemento);
+});
+}
+
+/* Boton */
+const botonAgregar = document.getElementById("agregar")
+const divgrande = document.getElementById('div1');
+
+
+const handler = () => {
+    const cardElement = document.createElement("div");
+    
+    const titulo = document.getElementById("titulo")
+    const descripcion = document.getElementById("descripcion")
+    const url = document.getElementById("url")
+
+    let tituloIngresado = titulo.value;
+    let descripcionIngresada = descripcion.value;
+    let urlIngresada = url.value;
+
+
+    if (!tituloIngresado || !descripcionIngresada || !urlIngresada) {
+        alert("Por favor, completa todos los campos.");
+    } else {
+
+        cardElement.innerHTML = `
+            <h1>${tituloIngresado}</h1>
+            <p>${descripcionIngresada}</p>
+            <img src=${urlIngresada} alt="foto" />
+            <button id="delete"> Borrar </button>
+        `
+        cardElement.className = "cardElementStyle"
+        divgrande.append(cardElement);
+        
+        const actividadCreada = new Repository();
+        
+        actividadCreada.createActivity(tituloIngresado,descripcionIngresada, urlIngresada);
+        const array = Object.values(actividadCreada.getallactivities());
+        console.log(array);
+        
+            
+        }
+    
+    document.getElementById("titulo").value = ""
+    document.getElementById("descripcion").value = ""
+    document.getElementById("url").value = ""
+    
+    
+}
+
+
+
+botonAgregar.addEventListener("click", handler)  // Este es el evento que se le asigna a la const agregar.
+
+const botonBorrar = document.getElementById("delete")
+
+const deleteHandler = () => {
+
+    
+}
+
+botonBorrar.addEventListener("click",deleteHandler)
+
+// const agregar= document.getElementById("agregar");
+// const body = document.getElementsByTagName("body")[0] 
+
+// const cb = () =>{
+// const newdiv = document.createElement("div");
+// newdiv.className = "contenedoractividades";
+// newdiv.style.display = "flex";
+// newdiv.style.flexDirection = "row";
+// body.appendChild(newdiv);
+// return newdiv;
+// }

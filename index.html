@@ -50,21 +50,21 @@
 
         <section id="mis_actividades_favoritas">
             <h2>Mis actividades favoritas</h2>
-                
+                <form>
                     <label for="Título">Título:</label>
-                        <input type="text" id="titulo" name="Tìtulo"/>
+                        <input type="text" class="titulo" id="titulo" name="Tìtulo"/>
                     <label for="Descripción">Descripción:</label>
-                        <input type="text" id="descripcion" name="Descripción"/>
+                        <input type="text" class="descripcion" id="descripcion" name="Descripción"/>
                     <label for="URLIMg">URL imagen:</label>
-                        <input type="url" id="url" name="url IMAGEN"/>
+                        <input type="url" class="url" id="url" name="url IMAGEN"/>
                 
-                <button class="botonactividades" type="button" onclick="agregarinformacion()"> AGREGAR </button>
+                    <button id="agregar" type="button"> AGREGAR </button>
+                </form>
+        </section>
 
+        <section id="tarjetas">
             <!-- TARJETAS QUE SE MUESTRAN CON LO AGREGADO ARRIBA -->
-            
-            <div class="contenedoractividades">
-
-            </div>
+            <div class="contenedoractividades" id="div1"></div>
         </section>
     </main>
     <footer>
