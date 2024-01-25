@@ -218,7 +218,7 @@ input{
     width: 15rem;
     height: fit-content;
     margin: 20px auto;
-    background: colorrgb(247, 238, 225)8;;
+    background-color: rgb(247, 238, 225);
     padding: 20px;
     border-radius: 8px;
     text-align: center;

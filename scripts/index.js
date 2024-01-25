@@ -26,27 +26,6 @@ navlinks.forEach(link => {
     link.addEventListener('click', handleNavClick);
 });
 
-/* window.onscroll = () => {
-    sections.forEach(sec => {
-        let top = window.scrollY;
-        let title = sec.querySelector('h2');
-
-        if (title) {
-            let offset = title.offsetTop - 150;
-            let height = title.offsetHeight;
-            let id = title.getAttribute('id');
-
-            if (top >= offset && top < offset + height) {
-                navlinks.forEach(links => {
-                    links.classList.remove('active');
-                    document.querySelector('div nav a[href*=' + id + ']').classList.add('active');
-                });
-            }
-        }
-    });
-}; */
-
-
 /* Formulario */
 
 class Activity{
@@ -58,14 +37,9 @@ class Activity{
     }
 }
 
-/* Caja donde se guarda info formulario */
-
 class Repository{
     constructor(){
-    /* A esta clase repositorio le creamos un metodo que reciba las actividades del formulario, cree una actividad nueva y la guarde
-    en su array. */
-        this.activities = [];
-        this.contador = 1;
+      this.activities = [];
     }
 
     /* un metodo que le permita retornar todas las actividades */   
@@ -75,29 +49,42 @@ class Repository{
 
     /* un metodo que le permita filtrar las actividades */    
     createActivity(titulo, descripcion, url){
-        const newActivity = new Activity(this.contador,titulo, descripcion, url);
-        this.activities.push(newActivity);
-        this.contador++;
+        const id = this.getNextId();
+        const activity = new Activity(id, titulo, descripcion, url);
+        this.insertActivitySorted(activity);
+        return activity;
     };
+
     /* método para eliminar */
-    deleteid(id){
-        this.activities.filter((activity) => activity.id !== id)
+    deleteActivity(idToDeleted){
+        this.activities= this.activities.filter((activity) => activity.id !== idToDeleted)
     };
-}
 
-/* Instancia de activity */
+    getNextId() {
+        if (this.activities.length === 0) {
+          return 1;
+        }
+        return this.activities[this.activities.length - 1].id + 1;
+      }
 
+    insertActivitySorted(activity) {
+    const index = this.activities.findIndex(existingActivity => existingActivity.id > activity.id);
+    if (index === -1) {
+        this.activities.push(activity);
+    } else {
+        this.activities.splice(index, 0, activity);
+    }
+      }
+};
 
-function activityToHTML(activities) {
-    
+const activityToHTML = (activities) => {
     const {titulo, descripcion, url } = activities;   // Destructuring
 
     // Crear los elementos html.
     const cardtitulo = document.createElement("h3");
     const carddescripcion = document.createElement("p");
     const cardimagen = document.createElement("img");
-    // crear div para la carta 
-
+    
     // Asignar los valores 
     cardtitulo.innerHTML = titulo;
     carddescripcion.innerHTML = descripcion;
@@ -119,7 +106,7 @@ function activityToHTML(activities) {
     return cardElement;
 }
 
-function todoAlDOM(){
+const todoAlDOM = () => {
     const contenedorActividades = document.getElementById('div1');
 
     contenedorActividades.innerHTML = '';         
@@ -138,70 +125,52 @@ function todoAlDOM(){
 /* Boton */
 const botonAgregar = document.getElementById("agregar")
 const divgrande = document.getElementById('div1');
-
+const mirepositorio = new Repository();
 
 const handler = () => {
-    const cardElement = document.createElement("div");
-    
-    const titulo = document.getElementById("titulo")
-    const descripcion = document.getElementById("descripcion")
-    const url = document.getElementById("url")
-
-    let tituloIngresado = titulo.value;
-    let descripcionIngresada = descripcion.value;
-    let urlIngresada = url.value;
-
-
-    if (!tituloIngresado || !descripcionIngresada || !urlIngresada) {
-        alert("Por favor, completa todos los campos.");
-    } else {
-
-        cardElement.innerHTML = `
-            <h1>${tituloIngresado}</h1>
-            <p>${descripcionIngresada}</p>
-            <img src=${urlIngresada} alt="foto" />
-            <button id="delete"> Borrar </button>
-        `
-        cardElement.className = "cardElementStyle"
-        divgrande.append(cardElement);
-        
-        const actividadCreada = new Repository();
-        
-        actividadCreada.createActivity(tituloIngresado,descripcionIngresada, urlIngresada);
-        const array = Object.values(actividadCreada.getallactivities());
-        console.log(array);
-        
+    const titulo = document.getElementById('titulo').value;
+    const descripcion = document.getElementById('descripcion').value;
+    const url = document.getElementById('url').value
             
-        }
-    
-    document.getElementById("titulo").value = ""
-    document.getElementById("descripcion").value = ""
-    document.getElementById("url").value = ""
-    
-    
+    if (!titulo || !descripcion || !url){
+        alert("Por favor, completa todos los campos.");
+    } else {      
+        const activity = mirepositorio.createActivity(titulo, descripcion, url);
+                
+    displayActivity(activity);
+            
+    document.getElementById('titulo').value = ''
+    document.getElementById('descripcion').value = ''
+    document.getElementById('url').value = ''
+    }
 }
 
-
-
-botonAgregar.addEventListener("click", handler)  // Este es el evento que se le asigna a la const agregar.
-
-const botonBorrar = document.getElementById("delete")
-
-const deleteHandler = () => {
-
+function displayActivity(activity) {
+    const activityCard = document.createElement('div');
+    activityCard.className = "cardElementStyle"
+    activityCard.innerHTML = `
+      
+      <strong></strong> ${activity.titulo}<br>
+      <strong></strong> ${activity.descripcion}<br>
+      <img src=${activity.url} alt='foto' />
+      <button onclick="deleteActivity(${activity.id})">Eliminar</button>
+    `;
     
+    divgrande.appendChild(activityCard);
+  
+    console.log('Actividades:', mirepositorio.getallactivities());
+
 }
 
-botonBorrar.addEventListener("click",deleteHandler)
+function deleteActivity(id) {
+    mirepositorio.deleteActivity(id);
+    refreshActivityDisplay();
+}
 
-// const agregar= document.getElementById("agregar");
-// const body = document.getElementsByTagName("body")[0] 
+function refreshActivityDisplay() {
+    divgrande.innerHTML = '';
+    mirepositorio.getallactivities().forEach(activity => displayActivity(activity));
+}
+        
+botonAgregar.addEventListener("click", handler)  // Evento del boton. 
 
-// const cb = () =>{
-// const newdiv = document.createElement("div");
-// newdiv.className = "contenedoractividades";
-// newdiv.style.display = "flex";
-// newdiv.style.flexDirection = "row";
-// body.appendChild(newdiv);
-// return newdiv;
-// }
