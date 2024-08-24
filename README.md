@@ -27,7 +27,7 @@ Página web de presentación que incluye una sección con inputs de relleno obli
 
 ![image](https://github.com/user-attachments/assets/ec7f3462-86a9-4456-8d42-cbda0d033f53)
 
-    - lograr la funcionalidad de la sección “Mis Actividades Favoritas” e implementar la funcionalidad de eliminar tarjetas del contenedor al hacer click sobre ellas.
+- Lograr la funcionalidad de la sección “Mis Actividades Favoritas” e implementar la funcionalidad de eliminar tarjetas del contenedor al hacer click sobre ellas.
 
   ![image](https://github.com/user-attachments/assets/dad91f79-b7be-42a8-8831-22d6c219fd83)
 
