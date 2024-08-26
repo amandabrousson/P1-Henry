@@ -6,12 +6,12 @@
 
 Página web de presentación que incluye una sección con inputs de relleno obligatorio. Al ejecutarla, los campos se resetearan y se ejectará una card con esos datos.
 
-🛠️ Tecnologías utilizadas:
+## 🛠️ Tecnologías utilizadas:
 - Html
 - CSS
 - Javascript
 
-🎯 Objetivos:
+## 🎯 Objetivos:
 - Manejo de repositorios con Git y Github.
 - Diseño de Página Web con HTML y CSS.
 - Implementación de ECMAScript 6.
@@ -35,7 +35,7 @@ Sigue estos pasos para clonar y ejecutar el proyecto:
     ```bash
     Npm start
 
-🚀 Desarrollo:
+## 🚀 Desarrollo:
 - Diseñar una página web de presentación personal que contendrá 3 secciones:
 
 _______________________________________________________________________________________________________
