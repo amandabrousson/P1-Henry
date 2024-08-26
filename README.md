@@ -1,3 +1,5 @@
+![image](https://github.com/user-attachments/assets/277b144d-da97-45ae-9a67-fe3f77882bf6)
+
 🌟 Primer proyecto del bootcamp de programación fullstack SoyHenry.
 
 Página web de presentación que incluye una sección con inputs de relleno obligatorio. Al ejecutarla, los campos se resetearan y se ejectará una card con esos datos.
