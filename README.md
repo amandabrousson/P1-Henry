@@ -2,6 +2,8 @@
 
 🌟 Primer proyecto del bootcamp de programación fullstack SoyHenry.
 
+![image](https://github.com/user-attachments/assets/98c06d02-900b-4b55-b65a-b755dfd58cea)
+
 Página web de presentación que incluye una sección con inputs de relleno obligatorio. Al ejecutarla, los campos se resetearan y se ejectará una card con esos datos.
 
 🛠️ Tecnologías utilizadas:
