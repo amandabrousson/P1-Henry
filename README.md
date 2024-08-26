@@ -25,13 +25,13 @@ Sigue estos pasos para clonar y ejecutar el proyecto:
 
 2. **Ejecutarlo en Visual Studio Code e instalar sus dependencias**:
 
- ```bash
-Npm install
+    ```bash
+    Npm install
 
-3. **Para ejecutar el proyecto y ver la página**:
+ 3. **Para ejecutar el proyecto y ver la página**:
 
- ```bash
-Npm start
+    ```bash
+    Npm start
 
 🚀 Desarrollo:
 - Diseñar una página web de presentación personal que contendrá 3 secciones:
