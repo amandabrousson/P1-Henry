@@ -38,10 +38,6 @@ Sigue estos pasos para clonar y ejecutar el proyecto:
 ## 🚀 Desarrollo:
 - Diseñar una página web de presentación personal que contendrá 3 secciones:
 
-_______________________________________________________________________________________________________
-
-
-
 - Sección “Sobre Mi”, con un breve párrafo de presentación.
 
 ![image](https://github.com/user-attachments/assets/98c06d02-900b-4b55-b65a-b755dfd58cea)
