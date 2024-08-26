@@ -14,8 +14,32 @@ Página web de presentación que incluye una sección con inputs de relleno obli
 - Diseño de Página Web con HTML y CSS.
 - Implementación de ECMAScript 6.
 
+## Instalación
+
+Sigue estos pasos para clonar y ejecutar el proyecto:
+
+1. **Clonar el repositorio**:
+
+   ```bash
+   git clone https://github.com/amandabrousson/P1-Henry.git
+
+2. **Ejecutarlo en Visual Studio Code e instalar sus dependencias**:
+
+ ```bash
+Npm install
+
+3. **Para ejecutar el proyecto y ver la página**:
+
+ ```bash
+Npm start
+
 🚀 Desarrollo:
 - Diseñar una página web de presentación personal que contendrá 3 secciones:
+
+_______________________________________________________________________________________________________
+
+
+
 - Sección “Sobre Mi”, con un breve párrafo de presentación.
 
 ![image](https://github.com/user-attachments/assets/98c06d02-900b-4b55-b65a-b755dfd58cea)
